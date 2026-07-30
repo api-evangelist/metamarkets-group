@@ -1,8 +1,30 @@
 aid: metamarkets-group
 name: Metamarkets Group
-description: Metamarkets Group is a company surfaced as a portfolio company of dcvc and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Metamarkets was a real-time analytics platform for programmatic advertising,
+  giving ad exchanges, SSPs, DSPs, and ad networks interactive dashboards over
+  billions of daily bid, impression, click, and spend events. Its Real-time Data
+  Ingestion (RDI) API accepted continuous streams of OpenRTB-based JSON event
+  records over authenticated HTTPS POST, surfacing them in the Metamarkets
+  dashboard within seconds. Founded in 2010 and the birthplace of the Druid
+  analytics database (now Apache Druid), Metamarkets was acquired by Snap Inc. in
+  2017; its successor products live on as Rill Data. This profile enriches the
+  dcvc portfolio lead from the surviving public documentation at
+  docs.metamarkets.com.
 url: https://raw.githubusercontent.com/api-evangelist/metamarkets-group/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://files.readme.io/7e7ea7f-small-MMX-logo.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,12 +33,73 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- Advertising
+- AdTech
+- Analytics
+- Programmatic Advertising
+- Real-Time Data
+- Data Ingestion
+- OpenRTB
+- Dashboards
+apis:
+- name: Metamarkets Real-Time Data Ingestion (RDI) API
+  description: >-
+    HTTPS event-stream ingestion API for programmatic advertising data.
+    Customers continuously POST newline-delimited, OpenRTB-based JSON event
+    records (gzip-compressed) to a per-customer HTTPS endpoint using HTTP Basic
+    authentication; RDI processes the stream and surfaces it in the Metamarkets
+    dashboard within seconds. Single-event posting is not supported (batched
+    delivery only).
+  humanURL: https://docs.metamarkets.com/docs/getting-started
+  baseURL: https://rt-evaluate.metamarkets.com
+  properties:
+  - type: Documentation
+    url: https://docs.metamarkets.com/docs/getting-started
+  - type: RealTimeDataDelivery
+    url: https://docs.metamarkets.com/docs/real-time-data-delivery
+  - type: Authentication
+    url: authentication/metamarkets-group-authentication.yml
+  - type: Conventions
+    url: conventions/metamarkets-group-conventions.yml
+  - type: ErrorCatalog
+    url: errors/metamarkets-group-problem-types.yml
+  - type: Sandbox
+    url: sandbox/metamarkets-group-sandbox.yml
+common:
+- type: DomainSecurity
+  url: security/metamarkets-group-domain-security.yml
+- type: Documentation
+  url: https://docs.metamarkets.com/docs/getting-started
+- type: GettingStarted
+  url: https://docs.metamarkets.com/docs/getting-started
+- type: LLMsTxt
+  url: llms/metamarkets-group-llms.txt
+- type: Packages
+  url: packages/metamarkets-group-packages.yml
+- type: SDKs
+  url: packages/metamarkets-group-packages.yml
+- type: Authentication
+  url: authentication/metamarkets-group-authentication.yml
+- type: Conventions
+  url: conventions/metamarkets-group-conventions.yml
+- type: ErrorCatalog
+  url: errors/metamarkets-group-problem-types.yml
+- type: Sandbox
+  url: sandbox/metamarkets-group-sandbox.yml
+- type: WellKnown
+  url: well-known/metamarkets-group-well-known.yml
+- type: GitHubOrganization
+  url: https://github.com/metamx
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 8
+  pass: local-v1
