@@ -1,0 +1,35 @@
+aid: metamarkets-group-problem-types
+name: Metamarkets RDI Error Catalog
+description: HTTP response codes returned by the Metamarkets Real-time Data Ingestion (RDI) API.
+generated: '2026-07-20'
+method: searched
+source: https://docs.metamarkets.com/docs/real-time-data-delivery
+api: Metamarkets Real-Time Data Ingestion (RDI) API
+format: http-status
+envelope: HTTP status code (plain; no problem+json body documented)
+problem_types:
+- status: 200
+  title: Success
+  meaning: Batch accepted. RDI responds with a 2xx code within 50-100ms per batch.
+  remediation: None.
+- status: 401
+  title: Unauthorized
+  meaning: Incorrect credentials, or the caller lacks permission to POST to the endpoint.
+  remediation: Confirm the HTTP Basic username/password and endpoint URL supplied by your Metamarkets data engineer.
+- status: 404
+  title: Not Found
+  meaning: No such resource — typically an incorrect HTTPS endpoint URL.
+  remediation: Verify the exact RDI endpoint URL for your data feed.
+- status: 420
+  title: Enhance Your Calm (Rate / Quota Exceeded)
+  meaning: >-
+    The contracted volume quota (max events per time period) was exceeded, or data
+    was delivered in bursts rather than a smooth continuous stream.
+  remediation: >-
+    Drop or re-send the undelivered data using an exponential-backoff pattern and
+    reduce the posting rate. Do not attempt to backfill by bursting; contact your
+    account manager for quota changes or backfills.
+- status: 500
+  title: Server Error
+  meaning: RDI servers are temporarily unavailable or overloaded (any 5xx).
+  remediation: Drop or retry with exponential backoff.

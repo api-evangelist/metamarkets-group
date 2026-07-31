@@ -1,0 +1,53 @@
+aid: metamarkets-group-conventions
+name: Metamarkets RDI API Conventions
+description: Cross-cutting runtime semantics for the Metamarkets Real-time Data Ingestion (RDI) API.
+generated: '2026-07-20'
+method: searched
+source: https://docs.metamarkets.com/docs/real-time-data-delivery
+api: Metamarkets Real-Time Data Ingestion (RDI) API
+authentication:
+  style: http-basic
+  transport: https-required
+  ref: authentication/metamarkets-group-authentication.yml
+transport:
+  protocol: https
+  method: POST
+  contentType: application/json
+  encoding: UTF-8
+  compression: gzip
+  contentEncodingHeader: 'Content-Encoding: gzip'
+  keepAlive: recommended (HTTP/1.1 persistent connections)
+payload:
+  format: newline-delimited JSON (one event record per line)
+  schema: OpenRTB 2.5-based event records (e.g. MmxAuctionSummary), per the Metamarkets Integration Guide
+  batching:
+    required: true
+    note: Single-event posting is not supported; all data must be batched.
+    recommendedSize: 300-600 KB pre-compressed chunks (max ~1 MB compressed per file)
+idempotency:
+  supported: false
+  note: >-
+    No idempotency keys or dedup semantics are documented. Delivery reliability is
+    achieved client-side via a guaranteed-delivery message queue (Kafka/RabbitMQ)
+    plus exponential-backoff retries; the RDI client returns a future per event so
+    callers can confirm each batch POST succeeded before advancing.
+pagination:
+  applicable: false
+  note: RDI is a write-only ingestion API; there is no paged read surface.
+timeliness:
+  currentDataWindow: event timestamps within 10-15 minutes of post time are surfaced in real time
+  lateData: older data is stored and surfaced later (typically within 24-48 hours); data older than 1 day requires a backfill arranged with the account manager
+  timestampFormat: ISO 8601 (other formats fail)
+rateLimiting:
+  signal: HTTP 420 (quota / volume rate exceeded)
+  quota: per-customer maximum events per time period agreed by contract
+  guidance: >-
+    Deliver in a smooth, continuous pattern; do not backfill by bursting. On 420,
+    drop or re-send with exponential backoff and reduce the posting rate.
+errors:
+  style: HTTP status codes (not RFC 9457 problem+json)
+  ref: errors/metamarkets-group-problem-types.yml
+  successResponse: HTTP 2xx within 50-100ms per batch
+versioning:
+  api: unversioned ingestion endpoint (per-customer URL path)
+  client: RdiClient for Java is versioned (current 0.13 beta; core 0.12)

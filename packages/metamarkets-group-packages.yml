@@ -1,0 +1,36 @@
+aid: metamarkets-group-packages
+name: Metamarkets Group Packages
+description: First-party client and serialization libraries for the Metamarkets Real-time Data Ingestion (RDI) API.
+generated: '2026-07-20'
+method: searched
+source: https://docs.metamarkets.com/docs/rdi-client-library
+packages:
+- name: rdi-client-java
+  ecosystem: maven
+  official: true
+  language: Java
+  description: >-
+    Client library (RdiClient) for posting event streams to the Metamarkets
+    real-time data ingestion (RDI) API. Handles HTTPS endpoint connection,
+    authentication, event serialization and batching, connection pooling, HTTP
+    transport, and error handling with exponential-backoff retries. Beta.
+  version: '0.13'
+  coordinates: com.metamx:rdi-client-core:0.12
+  repository: https://metamx.artifactoryonline.com/metamx/pub-libs-releases-local/
+  sourceCode: https://github.com/metamx/rdi-client-java
+  docs: https://metamx.github.io/rdi-client-java/
+  javadocs: https://metamx.github.io/rdi-client-java/static/apidocs/0.13/
+- name: rad-tech-datatypes
+  ecosystem: maven
+  official: true
+  language: Java
+  description: >-
+    Jackson-based serialization library ("RadTech Datatypes") for generating the
+    OpenRTB-based event records (e.g. MmxAuctionSummary) used in conjunction with
+    the RDI client.
+  sourceCode: https://github.com/metamx/rad-tech-datatypes
+  repository: https://jitpack.io/p/metamx/rad-tech-datatypes
+notes: >-
+  Artifacts are published to the Metamarkets (metamx) Artifactory / JitPack rather
+  than Maven Central. rad-tech-datatypes is available via JitPack. Metamarkets was
+  acquired by Snap Inc. in 2017; these remain the last-published public versions.

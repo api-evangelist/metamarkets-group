@@ -1,0 +1,19 @@
+# Metamarkets Support Documentation Documentation
+
+> Documentation for Metamarkets Support Documentation
+
+## Guides
+- [Metamarkets Support Documentation](https://docs.metamarkets.com/docs/getting-started.md)
+- [Integration Guide for Exchanges](https://docs.metamarkets.com/docs/integration-guide-for-exchanges.md)
+- [Integration Guide for DSPs](https://docs.metamarkets.com/docs/integration-guide-for-dsps.md)
+- [Integration Guide for AppNexus](https://docs.metamarkets.com/docs/trial.md)
+- [Batch Data Delivery](https://docs.metamarkets.com/docs/batch-data-delivery.md)
+- [Real-Time Data Delivery](https://docs.metamarkets.com/docs/real-time-data-delivery.md)
+- [Pre-Aggregated Batch Data Delivery](https://docs.metamarkets.com/docs/rolled-up-batch-data-delivery.md)
+- [Data Sampling](https://docs.metamarkets.com/docs/data-sampling.md)
+- [Handling Lookup Tables](https://docs.metamarkets.com/docs/lookup-tables.md)
+- [RDI Client Library](https://docs.metamarkets.com/docs/rdi-client-library.md)
+- [RadTech Databases](https://docs.metamarkets.com/docs/radtech-databases.md)
+- [Embedding the Metamarkets Dashboard](https://docs.metamarkets.com/docs/embedding-the-metamarkets-dashboard.md)
+- [FAQ](https://docs.metamarkets.com/docs/faq.md)
+- [Glossary](https://docs.metamarkets.com/docs/glossary.md)

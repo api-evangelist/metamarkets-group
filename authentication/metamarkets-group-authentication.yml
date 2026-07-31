@@ -1,0 +1,26 @@
+aid: metamarkets-group-authentication
+name: Metamarkets RDI Authentication
+description: Authentication profile for the Metamarkets Real-time Data Ingestion (RDI) API.
+generated: '2026-07-20'
+method: searched
+source: https://docs.metamarkets.com/docs/real-time-data-delivery
+api: Metamarkets Real-Time Data Ingestion (RDI) API
+schemes:
+- type: http
+  scheme: basic
+  in: header
+  header: Authorization
+  description: >-
+    RDI endpoints are protected by HTTP Basic authentication. A per-customer
+    username and password are supplied by the Metamarkets data engineer / account
+    representative and passed on every POST (e.g. curl --user <username>:<password>).
+    HTTPS is required so credentials and data are always encrypted in transit.
+  credentialsProvisioning: manual
+  transport: https-required
+errors:
+  invalidCredentials: >-
+    HTTP 401 is returned when credentials are incorrect or the caller lacks
+    permission to POST to the endpoint.
+notes: >-
+  Endpoint URLs and credentials are provisioned per customer by a Metamarkets
+  data engineer; there is no self-service key issuance or OAuth flow documented.

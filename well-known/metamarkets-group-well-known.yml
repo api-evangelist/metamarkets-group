@@ -1,0 +1,27 @@
+aid: metamarkets-group-well-known
+name: Metamarkets Well-Known Probes
+description: Results of probing standard /.well-known paths on the live Metamarkets documentation host.
+generated: '2026-07-20'
+method: probed
+source: https://docs.metamarkets.com
+host: https://docs.metamarkets.com
+probes:
+- path: /.well-known/security.txt
+  status: 404
+  file: null
+- path: /.well-known/openid-configuration
+  status: 404
+  file: null
+- path: /.well-known/oauth-authorization-server
+  status: 404
+  file: null
+- path: /.well-known/api-catalog
+  status: 404
+  file: null
+- path: /.well-known/ai-plugin.json
+  status: 404
+  file: null
+notes: >-
+  No well-known documents are published. The primary marketing host
+  (metamarkets.com) is parked / returns 404 with an invalid TLS certificate;
+  docs.metamarkets.com (ReadMe.io-hosted) remains live and was probed here.

@@ -1,0 +1,34 @@
+aid: metamarkets-group-sandbox
+name: Metamarkets RDI Sandbox / Test Environment
+description: Documented test and evaluation endpoints and tooling for the Metamarkets RDI API.
+generated: '2026-07-20'
+method: searched
+source: https://docs.metamarkets.com/docs/rdi-client-library
+api: Metamarkets Real-Time Data Ingestion (RDI) API
+test_endpoints:
+- host: https://rt-test.mmx.io
+  example: https://rt-test.mmx.io/events/your-endpoint
+  role: RdiClient rdi.properties default test URL
+  source: rdi-client-library
+- host: https://rt-evaluate.metamarkets.com
+  example: https://rt-evaluate.metamarkets.com/events/endpoint-name
+  role: Documented evaluation endpoint for test curl uploads
+  source: real-time-data-delivery
+test_credentials:
+  provisioning: manual
+  note: >-
+    Username, password, and data-feed endpoint are supplied per customer by a
+    Metamarkets representative / data engineer. No public self-serve test
+    credentials are published (none are invented here).
+tooling:
+- name: rdi-send-files.sh
+  description: >-
+    Built-in testing utility bundled in the RdiClient tar distribution. Posts
+    newline-separated JSON event records from plain-text files you pass to it,
+    e.g. `bin/rdi-send-files.sh sample_data_1.txt sample_data_2.txt`. Configured
+    via conf/rdi.properties.
+  source: rdi-client-library
+test_curl_example: >-
+  curl --data-binary @realtime.json.gz --user <username>:<password>
+  -H'Content-Type: application/json' -H'Content-Encoding: gzip'
+  https://rt-evaluate.metamarkets.com/events/endpoint-name -v
