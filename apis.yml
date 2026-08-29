@@ -12,6 +12,17 @@ description: >-
   dcvc portfolio lead from the surviving public documentation at
   docs.metamarkets.com.
 url: https://raw.githubusercontent.com/api-evangelist/metamarkets-group/refs/heads/main/apis.yml
+deliveryModel:
+  model: library
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Library · distributed through package registries, no callable service
+  confidence: low
+  source:
+  - none
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
